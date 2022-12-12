@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_print
 import 'package:flutter/material.dart';
+import 'package:timezone/page1.dart';
+import 'package:timezone/page2.dart';
 
 void main() => runApp(const MaterialApp(home: Home()));
 
@@ -16,9 +18,8 @@ class Home extends StatelessWidget {
         shadowColor: Colors.purple[500],
       ),
       body: Center(
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+            //mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const Text(
                 'Hello guys !',
@@ -31,16 +32,31 @@ class Home extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: (() {
-                  print('You clicked on me');
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const Page1();
+                  }));
                 }),
                 style: ButtonStyle(
                   backgroundColor:
                       MaterialStateProperty.all(Colors.indigoAccent),
                 ),
-                child: const Text('Click on me'),
+                child: const Text('Page 1 ROW'),
+              ),
+              ElevatedButton(
+                onPressed: (() {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const Page2();
+                  }));
+                }),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.green),
+                ),
+                child: const Text('Page 2 COLUMN'),
               ),
               ElevatedButton.icon(
-                onPressed: (() {}),
+                onPressed: (() {
+                  print('Mail send !');
+                }),
                 icon: const Icon(
                   Icons.mail,
                   color: Colors.white,
