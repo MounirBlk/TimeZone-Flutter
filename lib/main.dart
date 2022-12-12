@@ -1,8 +1,14 @@
 // ignore_for_file: avoid_print
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-        home: Scaffold(
+void main() => runApp(const MaterialApp(home: Home()));
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       appBar: AppBar(
         title: const Text('Timezone application'),
         centerTitle: true,
@@ -29,4 +35,6 @@ void main() => runApp(MaterialApp(
         hoverColor: Colors.indigo,
         child: const Text('Click'),
       ),
-    )));
+    );
+  }
+}
