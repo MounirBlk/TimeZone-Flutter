@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:timezone/page1.dart';
 import 'package:timezone/page2.dart';
+import 'package:timezone/page3.dart';
 
 void main() => runApp(const MaterialApp(home: Home()));
 
@@ -52,6 +53,17 @@ class Home extends StatelessWidget {
                   backgroundColor: MaterialStateProperty.all(Colors.green),
                 ),
                 child: const Text('Page 2 COLUMN'),
+              ),
+              ElevatedButton(
+                onPressed: (() {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const Page3();
+                  }));
+                }),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.red),
+                ),
+                child: const Text('Page 3'),
               ),
               ElevatedButton.icon(
                 onPressed: (() {
