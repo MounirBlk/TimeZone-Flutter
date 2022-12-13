@@ -9,8 +9,36 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
+  int counter = 0;
+
+  void getData() async {
+    String name = '';
+    name = await Future.delayed(Duration(seconds: 3), () {
+      return 'mario';
+    });
+    print('1-name: $name');
+    name = await Future.delayed(Duration(seconds: 3), () {
+      return 'luigi';
+    });
+    print('2-name: $name');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+    print('[ChooseLocation] InitState function ran');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print('[ChooseLocation] Dispose function ran');
+  }
+
   @override
   Widget build(BuildContext context) {
+    print('[ChooseLocation] Build function ran');
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -22,7 +50,17 @@ class _ChooseLocationState extends State<ChooseLocation> {
         shadowColor: Colors.purple[500],
         elevation: 0.0,
       ),
-      body: Column(children: []),
+      body: ElevatedButton(
+        onPressed: () {
+          setState(() {
+            counter += 1;
+          });
+        },
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.green),
+        ),
+        child: Text('counter is $counter'),
+      ),
     );
   }
 }

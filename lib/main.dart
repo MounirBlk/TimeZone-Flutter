@@ -12,11 +12,11 @@ import 'package:timezone/world_time_pages/loading.dart';
 
 void main() => runApp(MaterialApp(
       //home: Home(), // WE CAN DELETE IT AFTER SETUP ROUTES SYSTEM
-      initialRoute: '/home',
+      initialRoute: '/',
       routes: {
-        '/': (context) => Loading(),
-        '/home': (context) => Home(),
-        '/location': (context) => ChooseLocation(),
+        '/': (context) => const Loading(),
+        '/home': (context) => const Home(),
+        '/location': (context) => const ChooseLocation(),
       },
     )); //MainPage()
 
