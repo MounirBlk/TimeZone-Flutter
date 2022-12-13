@@ -5,11 +5,23 @@ import 'package:timezone/page2.dart';
 import 'package:timezone/page3.dart';
 import 'package:timezone/profil_card.dart';
 import 'package:timezone/quote_list.dart';
+import 'package:timezone/example.dart';
+import 'package:timezone/world_time_pages/choose_location.dart';
+import 'package:timezone/world_time_pages/home.dart';
+import 'package:timezone/world_time_pages/loading.dart';
 
-void main() => runApp(const MaterialApp(home: QuoteList())); //Home()
+void main() => runApp(MaterialApp(
+      //home: Home(), // WE CAN DELETE IT AFTER SETUP ROUTES SYSTEM
+      initialRoute: '/home',
+      routes: {
+        '/': (context) => Loading(),
+        '/home': (context) => Home(),
+        '/location': (context) => ChooseLocation(),
+      },
+    )); //MainPage()
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -141,6 +153,31 @@ class Home extends StatelessWidget {
                   ),
                   label: const Text(
                     'Quotes',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                ElevatedButton.icon(
+                  onPressed: (() {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const Example();
+                    }));
+                  }),
+                  icon: const Icon(
+                    Icons.access_time,
+                    color: Colors.white,
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.purple),
+                  ),
+                  label: const Text(
+                    'Example',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
