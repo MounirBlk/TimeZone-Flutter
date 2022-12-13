@@ -15,40 +15,43 @@ class _Page3State extends State<Page3> {
       appBar: AppBar(
         title: const Text('Page 3'),
         centerTitle: true,
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.grey[850],
         shadowColor: Colors.purple[500],
       ),
-      body: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 4,
-            child: Image.asset('assets/images/fond.jpg'),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              padding: const EdgeInsets.all(30.0),
-              color: Colors.cyan,
-              child: const Text('1'),
+      body: Container(
+        color: Colors.grey[400],
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 4,
+              child: Image.asset('assets/images/fond.jpg'),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: const EdgeInsets.all(30.0),
-              color: Colors.amber,
-              child: const Text('2'),
+            Expanded(
+              flex: 2,
+              child: Container(
+                padding: const EdgeInsets.all(30.0),
+                color: Colors.cyan,
+                child: const Text('1'),
+              ),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: const EdgeInsets.all(30.0),
-              color: Colors.brown,
-              child: const Text('3'),
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: const EdgeInsets.all(30.0),
+                color: Colors.amber,
+                child: const Text('2'),
+              ),
             ),
-          ),
-        ],
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: const EdgeInsets.all(30.0),
+                color: Colors.brown,
+                child: const Text('3'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
