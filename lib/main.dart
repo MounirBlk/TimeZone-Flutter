@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:timezone/page1.dart';
 import 'package:timezone/page2.dart';
 import 'package:timezone/page3.dart';
-import 'package:timezone/profilCard.dart';
-import 'package:timezone/quoteList.dart';
+import 'package:timezone/profil_card.dart';
+import 'package:timezone/quote_list.dart';
 
 void main() => runApp(const MaterialApp(home: QuoteList())); //Home()
 
@@ -54,7 +54,7 @@ class Home extends StatelessWidget {
                 const SizedBox(
                   height: 10.0,
                 ),
-                ElevatedButton(
+                TextButton(
                   onPressed: (() {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
@@ -85,7 +85,7 @@ class Home extends StatelessWidget {
                 const SizedBox(
                   height: 10.0,
                 ),
-                ElevatedButton(
+                OutlinedButton(
                   onPressed: (() {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {

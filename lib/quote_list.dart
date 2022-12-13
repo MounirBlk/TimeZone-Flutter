@@ -26,21 +26,38 @@ class _QuoteListState extends State<QuoteList> {
         color: 'red'),
   ];
 
-  Widget QuoteTemplate(quote) => QuoteCard(quote: quote); //
+  /*Widget QuoteTemplate(quote) => QuoteCard(
+      quote: quote,
+      delete: () {
+        setState(() {
+          quotes.remove(quote);
+        });
+      });*/ //
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: const Text('Awesome Quotes'),
+        title: const Text(
+          'Awesome Quotes',
+          style: TextStyle(fontFamily: 'IndieFlower'),
+        ),
         centerTitle: true,
         backgroundColor: Colors.redAccent,
         shadowColor: Colors.purple[500],
         elevation: 0.0,
       ),
       body: Column(
-        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+        children: quotes
+            .map((quote) => QuoteCard(
+                quote: quote,
+                delete: () {
+                  setState(() {
+                    quotes.remove(quote);
+                  });
+                }))
+            .toList(),
       ),
     );
   }
