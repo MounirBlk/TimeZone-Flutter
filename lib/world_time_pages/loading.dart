@@ -1,7 +1,7 @@
-// ignore_for_file: avoid_print, prefer_const_constructors
+// ignore_for_file: avoid_print, prefer_const_constructors, use_build_context_synchronously
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'dart:convert';
+import 'package:timezone/services/world_time.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -11,19 +11,24 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  void getData() async {
-    Response response =
-        await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
-    Map data = jsonDecode(response.body); // this requires import dart:convert
-    print(data);
-    print(data['title']);
+  void setupWorldTime() async {
+    WorldTime instance = WorldTime(
+        location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
+    await instance.getTime();
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'location': instance.location,
+      'flag': instance.flag,
+      'time': instance.time,
+      'isDaytime': instance.isDaytime,
+      'timezone': instance.timezone
+    });
   }
 
   @override
   void initState() {
     super.initState();
-    getData();
     print('[Loading] InitState function ran');
+    setupWorldTime();
   }
 
   @override
@@ -35,18 +40,13 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        title: const Text(
-          'Loading',
-          style: TextStyle(fontFamily: 'IndieFlower'),
+      backgroundColor: Colors.indigo,
+      body: Center(
+        child: SpinKitFadingCube(
+          color: Colors.white,
+          size: 80.0,
         ),
-        centerTitle: true,
-        backgroundColor: Colors.purple[200],
-        shadowColor: Colors.purple[500],
-        elevation: 0.0,
       ),
-      body: Column(children: []),
     );
   }
 }
