@@ -17,6 +17,7 @@ void main() => runApp(MaterialApp(
         '/': (context) => const Loading(),
         '/home': (context) => const Home(),
         '/location': (context) => const ChooseLocation(),
+        '/main': (context) => const MainPage(),
       },
     )); //MainPage()
 
