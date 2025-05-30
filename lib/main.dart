@@ -49,7 +49,8 @@ class MainPage extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               //mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(
